@@ -85,6 +85,13 @@ done
 ```
 
 4. Data summary and export
+更新R版本
+```R
+install.packages("installr")
+require(installr)
+updateR()
+```
+
 ```R
 library(tximport)
 library(GenomicFeatures)
@@ -102,8 +109,10 @@ head(txTogene)
 write.csv(txdTogene,'txiTogene.csv',row.names=TRUE)
 
 # 创建sample矩阵
-samplelist<-c('N-1','N-2','Ab-1','Ab-2','S01-C-1','S01-C-2')
-filelist <- file.path("/home/test/share/salmon", sampleList, "quant.sf")
+samplelist<-c('N-1','N-2','Ab-1','Ab-2','S01-C1','S01-C2')
+filelist <- file.path("/home/test/share/salmon", samplelist, "quant.sf")
+files <- file.path(dir, "salmon", samples$run, "quant.sf.gz")
+names(files) <- paste0("sample", 1:6)
 names(filelist) <- samplelist
 
 # tximport导入结果
