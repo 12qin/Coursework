@@ -37,16 +37,16 @@ cutadapt -a ADAPTER_FWD -A ADAPTER_REV \
 ```
 2. Filtering option
 ```shell
--a: trimming reads 3'end adapter for read1  
--A: trimming reads 3'end adapter for read2  
--O: overlap with read for minlength (default=3)   
--m: filter reads by minimum length   
---discard-untrimmed, --trimmed-only: discard untrimmed reads  
--e: maximum error rate (Default= 0.1)  
--q: trim low quality bases  
--o: output file for read1  
--P: output file for read2  
---info-file：each reads and matched adapter information 
+#-a: trimming reads 3'end adapter for read1  
+#-A: trimming reads 3'end adapter for read2  
+#-O: overlap with read for minlength (default=3)   
+#-m: filter reads by minimum length   
+#--discard-untrimmed, --trimmed-only: discard untrimmed reads  
+#-e: maximum error rate (Default= 0.1)  
+#-q: trim low quality bases  
+#-o: output file for read1  
+#-P: output file for read2  
+#--info-file：each reads and matched adapter information 
 ```
 ## Salmon
 1. Create index
