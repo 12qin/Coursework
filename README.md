@@ -1,2 +1,2 @@
-# Coursework
-Bioinformatics Tutorial
+# RNA-seq Note
+
