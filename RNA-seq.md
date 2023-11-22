@@ -12,7 +12,7 @@ docker pull combinelab/salmon:latest
 ```shell
 docker run --name=container_name \
  -dt -h bioinfo_docker --restart unless-stopped \
- -v C:\Users\qinyan\Desktop\share_folder:/home/test/share image:<version>
+ -v C:\Users\qinyan\Desktop\share_folder_name:/home/test/share image:<version>
 
 docker exec -u root container_name chown -R test:test /home/test/share
 ```
