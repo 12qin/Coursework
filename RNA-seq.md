@@ -134,6 +134,9 @@ dim(dds)
 
 #差异分析
 dds <- DESeq(dds)
+#离散度分析
+plotDispEsts(dds)
+
 saveRDS(dds,file = "sw480_dds.rds")
 ```
 3. 样本间差异分析
@@ -198,10 +201,14 @@ write.csv(diff_gene,'results/DEG_Ab~C.csv',row.names=TRUE)
 ```
 5. 结果可视化
 ```R 
-#查看P value分布
+## 查看P value分布
 library(ggplot2)
 ggplot(diff_gene) , aes(x = pvalue)) +
   geom_histogram(bins = 200)
+
+## 查看基因整体表达情况
+boxplot(rlogMat ,col=color, ylab="rlog", main=" rlog data ",
+        outline = F, notch = F)
 
 ## 火山图绘制
 library(ggrepel)
