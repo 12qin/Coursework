@@ -1,8 +1,8 @@
 # RNA-seq pepline
 ## Docker
-1. Download image  
-```bash
-#docker pull image:<version>
+1. Download image
+   #docker pull image:<version>
+```shell
 docker pull staphb/fastqc:latest
 docker pull ewels/multiqc:latest
 docker pull zavolab/cutadapt:1.16
