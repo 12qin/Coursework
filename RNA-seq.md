@@ -70,7 +70,7 @@ salmon quant --validateMappings \
 # -o： 输出目录
 ```
 ## MultiQC
-'''
+'''shell
 docker exec -it multiqc bash
 multiqc /home/test/share/fastqc -o /home/test/share/multiqc
 multiqc /home/test/share/salmon -o /home/test/share/multiqc
