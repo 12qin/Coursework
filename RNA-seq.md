@@ -114,17 +114,17 @@ counts <- txi$counts
 counts_filt <- counts[rowSums(counts)>0,]
 write.csv(counts_filt,'results/sw480_counts_filt.csv',row.names=TRUE)
 ```
-5. DEseq2
+2. DEseq2 analysis
 ```R
 library(DESeq2)
 
 #整理数据
-SampleTable <- data.frame(samlpe= c('N-1', 'N-2', 'Ab-1', 'Ab-2', 'S01-C-1', 'S01-C-2'), \
-  condition = c("Control","Control","Antibody","Antibody","Cysteine","Cysteine")
+SampleTable <- data.frame(samlpe= c('N-1', 'N-2', 'Ab-1', 'Ab-2', 'S01-C-1', 'S01-C-2'), 
+  condition = c("Control","Control","Antibody","Antibody","Cysteine","Cysteine"))
 rownames(sampleTable)<-colnames(txi$counts)
 
 #构建dds对象
-dds <- DESeqDataSetFromMatrix(round(counts_filt), coldata, design=~treatment)
+dds <- DESeqDataSetFromMatrix(round(counts_filt), coldata=sampleTable, design=~treatment)
 str(dds)
 
 # 质控
@@ -136,7 +136,7 @@ dim(dds)
 dds <- DESeq(dds)
 saveRDS(dds,file = "sw480_dds.rds")
 ```
-6. 样本间差异分析
+3. 样本间差异分析
 ```R
 library(pheatmap)
 library(RColorBrewer)
@@ -162,7 +162,7 @@ heatmap(pearson_cor,col = colorRampPalette(brewer.pal(9, "GnBu"))(100),
 ##PCA分析
 plotPCA(rld, intgroup=c('condition'))
 ```
-7. 差异基因表达分析
+4. 差异基因表达分析
 ```R
 # 提取组间差异基因
 res <- results(dds, contrast = c('treatment',"Antibody",'Control')) 
@@ -196,7 +196,7 @@ table(diff_gene$up_down)
 
 write.csv(diff_gene,'results/DEG_Ab~C.csv',row.names=TRUE)
 ```
-8. 结果可视化
+5. 结果可视化
 ```
 #查看P value分布
 library(ggplot2)
