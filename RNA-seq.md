@@ -77,8 +77,8 @@ multiqc /home/test/share/salmon -o /home/test/share/multiqc
 ```
 ## R
 1. Data summary and export
-#更新R版本
 ```R
+#更新R版本
 install.packages("installr")
 require(installr)
 updateR()
