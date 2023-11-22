@@ -197,7 +197,7 @@ table(diff_gene$up_down)
 write.csv(diff_gene,'results/DEG_Ab~C.csv',row.names=TRUE)
 ```
 5. 结果可视化
-```
+```R 
 #查看P value分布
 library(ggplot2)
 ggplot(diff_gene) , aes(x = pvalue)) +
